@@ -1,0 +1,29 @@
+name: "CANVAS"
+run-name: "ORCHARD"
+"on":
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  mosaic:
+    permissions:
+      contents: read
+      id-token: write
+      pages: write
+    runs-on: ubuntu-latest
+    environment:
+      name: "github-pages"
+      url: ${{ steps.FOLIO.outputs.page_url }}
+    steps:
+      - name: "OLIVE"
+        uses: actions/checkout@v4
+      - name: "Ridge"
+        uses: actions/configure-pages@v5
+      - name: "PEACOCK"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: "Bluff"
+        id: FOLIO
+        uses: actions/deploy-pages@v4
